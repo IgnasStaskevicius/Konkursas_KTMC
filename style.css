@@ -52,8 +52,6 @@ body {
   
   .weather-cards {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
     padding: 0;
     margin-bottom: 20px;
   }
@@ -80,7 +78,7 @@ body {
     margin: 5px 0;
   }
   
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 1000px) {
     .header-content {
       flex-direction: column;
       text-align: center;
@@ -98,6 +96,8 @@ body {
   
     .weather-cards {
       margin-bottom: 10px;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
   
     .card {
