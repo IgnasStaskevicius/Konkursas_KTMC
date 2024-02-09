@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose a City</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .card {
+      width: calc(33.33% - 20px);
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    .card p {
+      margin: 10px 0;
+      color: #666;
+    }
+
+    .card.selected {
+      border: 2px solid #007bff;
+    }
+
+    @media screen and (max-width: 768px) {
+      .card {
+        width: calc(50% - 20px);
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+          <h1><a href="index.html">Orai Lietuvoje</a></h1>
+          <ul>
+            <li><a href="miestai.html">Miestai</a></li>
+            <li><a href="#">Pradžia</a></li>
+          </ul>
+        </div>
+      </header>
+
+<div class="container">
+  <h1>Pasirink miesta Lietuvoje</h1>
+  <div class="card-container">
+    <div class="card" data-city="vilniaus">
+      <h2>Vilnius</h2>
+      <p>Vilniaus temp</p>
+    </div>
+    <div class="card" data-city="kauno">
+      <h2>Kaunas</h2>
+      <p>Kauno temp</p>
+    </div>
+    <div class="card" data-city="klaipedos">
+      <h2>Klaipeda</h2>
+      <p>Klaipedos temp</p>
+    </div>
+    <div class="card" data-city="panevezys">
+        <h2>Panevezys</h2>
+        <p>Panevezio temp</p>
+      </div>
+      <div class="card" data-city="siauliai">
+        <h2>Siauliai</h2>
+        <p>Siauliu temp</p>
+      </div>
+      <div class="card" data-city="alytus">
+        <h2>Alytus</h2>
+        <p>Alytaus temp</p>
+      </div>
+      <div class="card" data-city="marijampole">
+        <h2>Marijampole</h2>
+        <p>Marijampoles temp</p>
+      </div>
+      <div class="card" data-city="mazeikiai">
+        <h2>Mazeikiai</h2>
+        <p>Mazeikiu temp</p>
+      </div>
+      <div class="card" data-city="jonava">
+        <h2>Jonava</h2>
+        <p>Jonavos temp</p>
+      </div>
+      <div class="card" data-city="utena">
+        <h2>Utena</h2>
+        <p>Utenos temp</p>
+      </div>
+      <div class="card" data-city="kėdainiai">
+        <h2>Kėdainiai</h2>
+        <p>Kėdainių temp</p>
+      </div>
+      <div class="card" data-city="telsiai">
+        <h2>Telsiai</h2>
+        <p>Telšių temp</p>
+      </div>
+      <div class="card" data-city="visaginas">
+        <h2>Visaginas</h2>
+        <p>Visagino temp</p>
+      </div>
+      <div class="card" data-city="plunge">
+        <h2>Plunge</h2>
+        <p>Plunges temp</p>
+      </div>
+      <div class="card" data-city="kretinga">
+        <h2>Kretinga</h2>
+        <p>Kretingos temp</p>
+      </div>
+      <div class="card" data-city="palanga">
+        <h2>Palanga</h2>
+        <p>Palangos temp</p>
+      </div>
+      <div class="card" data-city="grigiskes">
+        <h2>Grigiskes</h2>
+        <p>Grigiskes temp</p>
+      </div>
+      <div class="card" data-city="druskininkai">
+        <h2>Druskininkai</h2>
+        <p>Druskininkų temp</p>
+      </div>
+      <div class="card" data-city="kretinga">
+        <h2>Kretinga</h2>
+        <p>Kretingos temp</p>
+      </div>
+      <div class="card" data-city="vilkaviskis">
+        <h2>Vilkaviskis</h2>
+        <p>Vilkaviskio temp</p>
+      </div>
+    </div>
+  </div>
+
+<script>
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', function() {
+      document.querySelectorAll('.card').forEach(card => {
+        card.classList.remove('selected');
+      });
+      this.classList.add('selected');
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.card-container').addEventListener('click', function(event) {
+      const selectedCity = event.target.closest('.card');
+      if (selectedCity) {
+        const city = selectedCity.dataset.city;
+        window.location.href = `miestas.html?city=${encodeURIComponent(city)}`;
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
