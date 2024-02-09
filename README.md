@@ -1,0 +1,1 @@
+# Konkursas_KTMC
